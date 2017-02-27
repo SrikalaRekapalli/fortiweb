@@ -8,12 +8,6 @@
         "description": "Location"
       }
     },
-    "publicIPAddressResourceGroup": {
-      "type": "string",
-      "metadata": {
-        "description": "Resource Group"
-      }
-    },
     "publicIPAddressName": {
       "type": "string",
       "metadata": {
