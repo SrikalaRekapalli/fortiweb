@@ -2,27 +2,6 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "location":{
-          "type": "string",
-         "defaultValue":"",
-         "metadata": {
-             "description":"location"
-         }
-      },
-"networkinterfacename": {
-       "type": "string",
-         "defaultValue":"",
-            "metadata": {
-                "description": "NetworkInterface Name"
-            }
-  },
-  "apiVersion":{
-      "type": "string",
-         "defaultValue":"",
-            "metadata": {
-                "description": "API Version gor the Compute Resources"
-            }
-     },
      "FGProtectedAddress":{
          "type": "string",
          "defaultValue": "",
