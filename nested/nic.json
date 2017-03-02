@@ -22,16 +22,47 @@
             "metadata": {
                 "description": "API Version gor the Compute Resources"
             }
+     },
+     "FGProtectedAddress":{
+         "type": "string",
+         "defaultValue": "",
+         "metadata": {
+             "description":"static ip address"
+         }
+     },
+     "subnet2Ref":{
+        "type": "string",
+         "defaultValue": "",
+         "metadata": {
+             "description":"subnet2 Ref"
+         }
      }
   },
    "variables":{
   },
    "resources": [
-        {
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "[parameters('apiVer')]",
-            "name": "[parameters('networkinterfacename')]",
-            "location": "[parameters('location')]",
+         {
+            "apiVersion": "2015-01-01",
+            "type": "Microsoft.Resources/deployments",
+            "name": "SettingUpnetworkInterface",
+            "dependsOn": [
+                "[concat('Microsoft.Resources/deployments/', 'SettingUpVirtualNetwork')]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Static",
+                            "privateIPAddress": "[parameters('FGProtectedAddress')]",
+                            "subnet": {
+                                "id": "[parameters('subnet2Ref')]"
+                            }
+                        }
+                    }
+                ],
+                "enableIPForwarding": true
+            }
         }
    ]
 }
