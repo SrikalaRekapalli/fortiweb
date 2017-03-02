@@ -46,9 +46,6 @@
             "type": "Microsoft.Resources/deployments",
             "name": "[parameters('network_NIC_fg12_Name')]",
             "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Resources/deployments/', 'SettingUpVirtualNetwork')]"
-            ],
             "properties": {
                 "ipConfigurations": [
                     {
